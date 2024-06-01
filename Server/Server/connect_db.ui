@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>connect_db</class>
+ <widget class="QWidget" name="connect_db">
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>70</y>
+     <width>415</width>
+     <height>443</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="title_label">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #4A90E2; padding: 10px;</string>
+      </property>
+      <property name="text">
+       <string>Database Connection</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QLabel" name="info_label">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #4A90E2; padding: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Enter your database connection details below:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="server_name_label">
+      <property name="styleSheet">
+       <string notr="true">color: #333333; padding: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Server Name:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="server_name_lineedit">
+      <property name="styleSheet">
+       <string notr="true">padding: 5px; border: 1px solid #4A90E2; border-radius: 5px;</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter server name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="db_name_label">
+      <property name="styleSheet">
+       <string notr="true">color: #333333; padding: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Database Name:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="db_name_lineedit">
+      <property name="styleSheet">
+       <string notr="true">padding: 5px; border: 1px solid #4A90E2; border-radius: 5px;</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter database name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="login_label">
+      <property name="styleSheet">
+       <string notr="true">color: #333333; padding: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Login:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="login_lineedit">
+      <property name="styleSheet">
+       <string notr="true">padding: 5px; border: 1px solid #4A90E2; border-radius: 5px;</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter login</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="pass_label">
+      <property name="styleSheet">
+       <string notr="true">color: #333333; padding: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Password:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="pass_lineedit">
+      <property name="styleSheet">
+       <string notr="true">padding: 5px; border: 1px solid #4A90E2; border-radius: 5px;</string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+      <property name="placeholderText">
+       <string>Enter password</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0" colspan="2">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="7" column="0" colspan="2">
+     <widget class="QPushButton" name="connect_bot">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #4CAF50; color: white; padding: 10px; border: none; border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Connect</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/connect_icon.png</normaloff>icons/connect_icon.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0" colspan="2">
+     <widget class="QPushButton" name="exit_bot">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #F44336; color: white; padding: 10px; border: none; border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Exit</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/exit_icon.png</normaloff>icons/exit_icon.png</iconset>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
