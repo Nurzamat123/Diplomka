@@ -9,14 +9,27 @@ class mythread : public QThread
 {
     Q_OBJECT
 public:
-   mythread(QTcpSocket*);
+    mythread(QTcpSocket*);
     ~mythread();
-   void run();
+    void run();
 
 private:
+    QTcpSocket *socket;
+    QByteArray data;
+    qint16 sizeblock = 0;
+    QString login,password;
 
+public slots:
+    void read_client();
+    void sent_to_client(QByteArray&);
 
 signals:
+    void send_to_server(QString);
+    void send_login_pass(QString login,QString pass);
+    void hellomessage_signal();
+    void reg_login_pass(QString,QString);
+    void vector_del_list(QString);
+    void add_strings(QString,QString,QString);
 };
 
 #endif // MYTHREAD_H

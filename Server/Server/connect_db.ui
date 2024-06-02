@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>connect_db</class>
  <widget class="QWidget" name="connect_db">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>655</width>
+    <height>583</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -150,12 +158,15 @@
      </spacer>
     </item>
     <item row="7" column="0" colspan="2">
-     <widget class="QPushButton" name="connect_bot">
+     <widget class="QPushButton" name="connect_but">
       <property name="font">
        <font>
         <pointsize>14</pointsize>
         <bold>true</bold>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: #4CAF50; color: white; padding: 10px; border: none; border-radius: 5px;</string>
@@ -170,7 +181,7 @@
      </widget>
     </item>
     <item row="8" column="0" colspan="2">
-     <widget class="QPushButton" name="exit_bot">
+     <widget class="QPushButton" name="exit_but">
       <property name="font">
        <font>
         <pointsize>14</pointsize>

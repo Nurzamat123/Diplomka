@@ -25,7 +25,7 @@ public slots:
     void hellomessage_slot();
     void reg_check(QString,QString);
     void vector_del_list_slot(QString);
-    void add_strings_slot(QString,QString,QString);
+    void add_strings_slot(QString,QString,QString,QString);
 
 signals:
     void send_to_textbrowser(QString str);
@@ -34,7 +34,7 @@ signals:
     void hellomessage_signal();
     void reg_login_password(QString,QString);
     void del_signal(QString);
-    void add_strings_signal(QString,QString,QString);
+    void add_strings_signal(QString,QString,QString,QString);
 };
 
 #endif // MYSERVER_H
