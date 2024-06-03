@@ -29,7 +29,8 @@ signals:
     void hellomessage_signal();
     void reg_login_pass(QString,QString);
     void vector_del_list(QString);
-    void add_strings(QString,QString,QString);
+    void add_strings(QString,QString,QString,QString);
 };
 
 #endif // MYTHREAD_H
+

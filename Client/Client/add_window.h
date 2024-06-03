@@ -17,6 +17,13 @@ public:
 
 private:
     Ui::add_window *ui;
+
+signals:
+    void send_strings(QString,QString,QString,QString);
+
+public slots:
+    void add_button_clicked();
+    void exit_button_clicked();
 };
 
 #endif // ADD_WINDOW_H

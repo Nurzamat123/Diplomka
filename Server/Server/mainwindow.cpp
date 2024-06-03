@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(server,SIGNAL(hellomessage_signal()),this,SLOT(hellomessage_slot()));
     connect(server,SIGNAL(reg_login_password(QString,QString)),this,SLOT(reg_login_pass(QString,QString)));
     connect(server,SIGNAL(del_signal(QString)),this,SLOT(delete_slot(QString)));
-    connect(server,SIGNAL(add_strings_signal(QString,QString,QString)),this,SLOT(add_newval_totable_slot(QString,QString,QString,QString)));
+    connect(server,SIGNAL(add_strings_signal(QString,QString,QString,QString)),this,SLOT(add_newval_totable_slot(QString,QString,QString,QString)));
 }
 
 void MainWindow::start_button_clicked()
@@ -69,7 +69,7 @@ void MainWindow::is_open_db(bool open)
 
 void MainWindow::get_login_pass(QString login, QString pass)
 {
-    db=m_connect_db->get_db();
+    db = m_connect_db->get_db();
     if(db.open()){
         QSqlQuery *query = new QSqlQuery(db);
         query->exec("select * from Users where Login = '"+login+"' and Password = '"+pass+"'");
@@ -165,7 +165,7 @@ void MainWindow::delete_slot(QString tmp)
 {
     if(db.open()){
         QSqlQuery*q=new QSqlQuery(db);
-        q->exec("delete from Курсанты where [ID] = "+tmp);
+        q->exec("delete from Курсанты where [ID] = " + tmp);
         hellomessage_slot();
         db.close();
     }

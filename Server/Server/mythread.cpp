@@ -48,11 +48,12 @@ void mythread::read_client(){
             }
 
             if(login == "ADD"){
-                QString number,name,count;
+                QString number,name,tel,group;
                 in>>number;
                 in>>name;
-                in>>count;
-                emit add_strings(number,name,count);
+                in>>tel;
+                in>>group;
+                emit add_strings(number,name,tel,group);
             }
 
             if(login == "reg"){
