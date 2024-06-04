@@ -47,7 +47,8 @@ public slots:
     void enter_info(QString &);
     void read_server();
     void button_delete();
-    void button_add();
     void get_strings(QString,QString,QString,QString);
+    void on_exit_button_clicked();
+    void on_add_button_clicked();
 };
 #endif // MAINWINDOW_H

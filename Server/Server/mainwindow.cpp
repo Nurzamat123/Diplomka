@@ -75,10 +75,10 @@ void MainWindow::get_login_pass(QString login, QString pass)
         query->exec("select * from Users where Login = '"+login+"' and Password = '"+pass+"'");
 
         while(query->next()){
-            if(query->value(0).toString()==login&&query->value(1).toString()==pass){
+            if(query->value(1).toString()==login&&query->value(2).toString()==pass){
                 ui->textBrowser->append(get_time_and_text("Client login = "+login+" success enter!"));
                 data.clear();
-                QString access=query->value(2).toString();
+                QString access=query->value(3).toString();
                 QString h = "ok";
                 QDataStream out (&data,QIODevice::WriteOnly);
                 out.setVersion(QDataStream::Qt_6_3);

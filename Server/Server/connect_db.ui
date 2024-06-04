@@ -76,6 +76,9 @@
       <property name="styleSheet">
        <string notr="true">padding: 5px; border: 1px solid #4A90E2; border-radius: 5px;</string>
       </property>
+      <property name="text">
+       <string>NURZAMAT\SQLEXPRESS</string>
+      </property>
       <property name="placeholderText">
        <string>Enter server name</string>
       </property>
@@ -95,6 +98,9 @@
      <widget class="QLineEdit" name="db_name_lineedit">
       <property name="styleSheet">
        <string notr="true">padding: 5px; border: 1px solid #4A90E2; border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>AutoSchool</string>
       </property>
       <property name="placeholderText">
        <string>Enter database name</string>
@@ -116,6 +122,9 @@
       <property name="styleSheet">
        <string notr="true">padding: 5px; border: 1px solid #4A90E2; border-radius: 5px;</string>
       </property>
+      <property name="text">
+       <string>sa</string>
+      </property>
       <property name="placeholderText">
        <string>Enter login</string>
       </property>
@@ -135,6 +144,9 @@
      <widget class="QLineEdit" name="pass_lineedit">
       <property name="styleSheet">
        <string notr="true">padding: 5px; border: 1px solid #4A90E2; border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>123</string>
       </property>
       <property name="echoMode">
        <enum>QLineEdit::Password</enum>

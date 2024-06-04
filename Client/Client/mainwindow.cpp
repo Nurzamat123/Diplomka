@@ -16,8 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     second_window->show();
 
     connect(second_window,SIGNAL(enter_info(QString&)),this,SLOT(enter_info(QString&)));
-    connect(ui->delete_button,SIGNAL(clicked(bool)),this,SLOT(button_delete()));
-    connect(ui->add_button,SIGNAL(clicked(bool)),this,SLOT(button_add()));
+    connect(ui->delete_button,SIGNAL(clicked()),this,SLOT(button_delete()));
+    connect(ui->add_button,SIGNAL(clicked()),this,SLOT(on_add_button_clicked()));
 
     this->setEnabled(false);
 
@@ -93,6 +93,7 @@ void MainWindow::read_server(){
 
 
 void MainWindow::button_delete(){
+    qDebug()<<"22222";
     int row = ui->tableView->selectionModel()->currentIndex().row();
         //qDebug()<<ui->tableView->selectionModel()->currentIndex().column();
     QModelIndex myindex;
@@ -119,11 +120,13 @@ void MainWindow::button_delete(){
 
 }
 
-void MainWindow::button_add(){
+void MainWindow::on_add_button_clicked()
+{
+    qDebug()<<"33333";
     this->setEnabled(false);
     ad_window = new add_window;
     ad_window->show();
-    connect(ad_window,SIGNAL(sent_strings(QString,QString,QString)),this,SLOT(get_strings(QString,QString,QString)));
+    connect(ad_window,SIGNAL(send_strings(QString,QString,QString,QString)),this,SLOT(get_strings(QString,QString,QString,QString)));
 }
 
 void MainWindow::send_to_server(QString str){
@@ -150,8 +153,18 @@ void MainWindow::get_strings(QString number,QString name,QString tel, QString gr
     socket->write(data);
 }
 
+void MainWindow::on_exit_button_clicked()
+{
+    qDebug()<<"111111";
+    this->close();
+}
+
+
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
+
 

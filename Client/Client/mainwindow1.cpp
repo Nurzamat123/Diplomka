@@ -81,8 +81,10 @@ void mainwindow1::read(){
                 break;
             }
             if(answer != "serverready"){
+
                 ui->info_label_enter->setText("Нет подключения к серверу!");
                 ui->info_label_reg->setText("Нет подключения к серверу!");
+                qDebug()<<answer;
             }
             else {
                 ui->info_label_enter->setText("Сервер готов!");

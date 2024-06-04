@@ -12,7 +12,7 @@ void mythread::run(){
     QByteArray tmp;
     tmp.clear();
     QString s = "serverready";
-    QDataStream out(&tmp,QIODevice::WriteOnly);
+    QDataStream out(&tmp, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_6_3);
     out<<qint16(0)<<s;
     out.device()->seek(0);
