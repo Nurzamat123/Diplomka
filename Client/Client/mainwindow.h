@@ -50,5 +50,7 @@ public slots:
     void get_strings(QString,QString,QString,QString);
     void on_exit_button_clicked();
     void on_add_button_clicked();
+
+    void test();
 };
 #endif // MAINWINDOW_H

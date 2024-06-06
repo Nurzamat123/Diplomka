@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+
 namespace Ui {
 class add_window;
 }
@@ -20,6 +21,7 @@ private:
 
 signals:
     void send_strings(QString,QString,QString,QString);
+    void send_signal();
 
 public slots:
     void add_button_clicked();

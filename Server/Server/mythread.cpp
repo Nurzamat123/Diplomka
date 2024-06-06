@@ -82,7 +82,7 @@ void mythread::read_client(){
 }
 
 
-void mythread::sent_to_client(QByteArray &byte){
+void mythread::send_to_client(QByteArray &byte){
     socket->write(byte);
 }
 

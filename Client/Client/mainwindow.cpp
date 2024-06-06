@@ -17,9 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(second_window,SIGNAL(enter_info(QString&)),this,SLOT(enter_info(QString&)));
     connect(ui->delete_button,SIGNAL(clicked()),this,SLOT(button_delete()));
-    connect(ui->add_button,SIGNAL(clicked()),this,SLOT(on_add_button_clicked()));
 
     this->setEnabled(false);
+
 
 }
 
@@ -32,22 +32,21 @@ void MainWindow::enter_info(QString &_access){
         connect(socket,SIGNAL(disconnected()),this,SLOT(deleteLater()));
         access = _access;
         second_window->deleteLater();
-
         this->setEnabled(true);
         if(access == "READ"){
             ui->add_button->setEnabled(false);
             ui->delete_button->setEnabled(false);
-            ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+            //ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+            ui->tableView->setVisible(false);
         }
-        //data.clear();
+        else if(access=="RW")
+            {
+            ui->add_button->setEnabled(true);
+            ui->delete_button->setEnabled(true);
+            ui->tableView->setEditTriggers(QAbstractItemView::EditTriggers());
+            }
         QString s = "___123___";
         send_to_server(s);
-        //        QDataStream out(&data,QIODevice::WriteOnly);
-        //        out.setVersion(QDataStream::Qt_6_3);
-        //        out<<qint16(0)<<s;
-        //        out.device()->seek(0);
-        //        out<<qint16(data.size()-sizeof(qint16));
-        //        socket->write(data);
     }
 }
 
@@ -80,7 +79,7 @@ void MainWindow::read_server(){
     model = new QStandardItemModel;
     int f=0,g=0;
     for(int i=0;i<list_string.size();i++){
-        if(g==3){
+        if(g==4){
             g=0;
             f++;
         }
@@ -93,7 +92,6 @@ void MainWindow::read_server(){
 
 
 void MainWindow::button_delete(){
-    qDebug()<<"22222";
     int row = ui->tableView->selectionModel()->currentIndex().row();
         //qDebug()<<ui->tableView->selectionModel()->currentIndex().column();
     QModelIndex myindex;
@@ -122,11 +120,11 @@ void MainWindow::button_delete(){
 
 void MainWindow::on_add_button_clicked()
 {
-    qDebug()<<"33333";
     this->setEnabled(false);
     ad_window = new add_window;
     ad_window->show();
     connect(ad_window,SIGNAL(send_strings(QString,QString,QString,QString)),this,SLOT(get_strings(QString,QString,QString,QString)));
+    connect(ad_window,SIGNAL(send_signal()),this,SLOT(test()));
 }
 
 void MainWindow::send_to_server(QString str){
@@ -155,10 +153,13 @@ void MainWindow::get_strings(QString number,QString name,QString tel, QString gr
 
 void MainWindow::on_exit_button_clicked()
 {
-    qDebug()<<"111111";
-    this->close();
+    this->deleteLater();
 }
 
+void MainWindow::test()
+{
+    this->setEnabled(true);
+}
 
 MainWindow::~MainWindow()
 {

@@ -14,6 +14,8 @@ mainwindow1::mainwindow1(QTcpSocket &_socket,QWidget *parent) :
     this->setFixedWidth(450);
     this->setFixedHeight(550);
 
+    this->setWindowTitle("Авторизация");
+
     connect(socket,SIGNAL(readyRead()),this,SLOT(read()));
 
     connect(ui->button_enter,SIGNAL(clicked(bool)),this,SLOT(but_enter_clicked()));

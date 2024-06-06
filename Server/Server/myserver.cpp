@@ -28,7 +28,7 @@ void myserver::newconnect()
     mythread *mthread=new mythread(server->nextPendingConnection());
     connect(mthread,SIGNAL(send_to_server(QString)),this,SLOT(by_thread(QString)));
     connect(mthread,SIGNAL(send_login_pass(QString,QString)),this,SLOT(get_login_pass(QString,QString)));
-    connect(this,SIGNAL(send_to_client_query(QByteArray&)),mthread,SLOT(sent_to_client(QByteArray&)));
+    connect(this,SIGNAL(send_to_client_query(QByteArray&)),mthread,SLOT(send_to_client(QByteArray&)));
     connect(mthread,SIGNAL(hellomessage_signal()),this,SLOT(hellomessage_slot()));
     connect(mthread,SIGNAL(reg_login_pass(QString,QString)),this,SLOT(reg_check(QString,QString)));
     connect(mthread,SIGNAL(vector_del_list(QString)),this,SLOT(vector_del_list_slot(QString)));

@@ -21,7 +21,7 @@ private:
 
 public slots:
     void read_client();
-    void sent_to_client(QByteArray&);
+    void send_to_client(QByteArray&);
 
 signals:
     void send_to_server(QString);

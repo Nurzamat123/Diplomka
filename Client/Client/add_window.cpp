@@ -7,8 +7,8 @@ add_window::add_window(QWidget *parent) :
     ui(new Ui::add_window)
 {
     ui->setupUi(this);
-    connect(ui->add_but,SIGNAL(clicked(bool)),this,SLOT(add_button_clicked()));
-    connect(ui->exit_but,SIGNAL(clicked(bool)),this,SLOT(exit_button_clicked()));
+    connect(ui->add_but,SIGNAL(clicked()),this,SLOT(add_button_clicked()));
+    connect(ui->exit_but,SIGNAL(clicked()),this,SLOT(exit_button_clicked()));
 }
 
 void add_window::add_button_clicked(){
@@ -18,7 +18,7 @@ void add_window::add_button_clicked(){
     tel = ui->tel->text();
     group = ui->group->text();
 
-    if(number == "" || name == "" || tel == "" || group == ""){
+    if(number.isEmpty()||name.isEmpty() || tel.isEmpty() || group.isEmpty()){
         QMessageBox::critical(this,"Error","Вы неправильно ввели значения!",QMessageBox::Ok);
     }
     else {
@@ -28,6 +28,7 @@ void add_window::add_button_clicked(){
 }
 
 void add_window::exit_button_clicked(){
+    emit send_signal();
     this->deleteLater();
 }
 

@@ -39,6 +39,9 @@ void connect_db::start_connect_clicked(){
 void connect_db::is_open_db(bool is){
     if(is){
         ui->info_label->setText("База данных успешно подключена!");
+        this->setEnabled(false);
+        QThread::sleep(2);
+        this->deleteLater();
     }
     else {
         ui->info_label->setText("База данных не подключена!");

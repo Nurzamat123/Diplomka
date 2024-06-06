@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QtSql>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -76,7 +76,7 @@ void MainWindow::get_login_pass(QString login, QString pass)
 
         while(query->next()){
             if(query->value(1).toString()==login&&query->value(2).toString()==pass){
-                ui->textBrowser->append(get_time_and_text("Client login = "+login+" success enter!"));
+                ui->textBrowser->append(get_time_and_text("Клиент с логином = "+login+" успешно подключился!"));
                 data.clear();
                 QString access=query->value(3).toString();
                 QString h = "ok";
@@ -88,7 +88,7 @@ void MainWindow::get_login_pass(QString login, QString pass)
                 server->send_to_client(data);
             }
             else{
-                ui->textBrowser->append(get_time_and_text("Client login = "+login+" no success enter!"));
+                ui->textBrowser->append(get_time_and_text("Клиент с логином = "+login+" не смог подключиться к серверу!"));
                 data.clear();
                 QString h = "no";
                 QDataStream out(&data,QIODevice::WriteOnly);
@@ -174,18 +174,28 @@ void MainWindow::delete_slot(QString tmp)
     }
 }
 
-void MainWindow::add_newval_totable_slot(QString number, QString name, QString tel, QString group)
+void MainWindow::add_newval_totable_slot(QString number,QString name, QString tel, QString group)
 {
-    if(db.open()){
-        QSqlQuery *q=new QSqlQuery(db);
-        q->exec("insert into Курсанты ([ID],[ФИО],[Телефон],[Группа])values ("+number+",'"+name+"',"+tel+","+group+")");
-        hellomessage_slot();
+    if (db.open()) {
+        QSqlQuery query(db);
+        query.prepare("INSERT INTO Курсанты ([ФИО], [Телефон], [Группа]) VALUES (:name, :tel, :group)");
+        if(!number.isEmpty()){
+            query.bindValue(":name", name);
+            query.bindValue(":tel", tel);
+            query.bindValue(":group", group);
+        }
+        if (query.exec()) {
+            hellomessage_slot();
+        } else {
+            qDebug() << "11111" << query.lastError().text();
+        }
+
         db.close();
-    }
-    else{
-        qDebug()<<"База данных не доступна!";
+    } else {
+        qDebug() << "База данных не доступна!";
     }
 }
+
 
 MainWindow::~MainWindow()
 {
