@@ -13,6 +13,7 @@
 #include "add_window.h"
 #include <add_tt_window.h>
 #include <paper.h>
+#include <mmainwindow.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -40,6 +41,7 @@ private:
 
     add_tt_window *ad_tt_window;
     paper *paper_window;;
+    mmainwindow *mmain_window;
 
     QTcpSocket *socket;
 
@@ -62,5 +64,6 @@ public slots:
 private slots:
     void on_exitButton_clicked();
     void on_viewStatsButton_clicked();
+    void on_mainMenuButton_clicked();
 };
 #endif // MAINWINDOW_H

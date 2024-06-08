@@ -15,6 +15,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mainwindow1.cpp \
+    mmainwindow.cpp \
     paper.cpp
 
 HEADERS += \
@@ -22,6 +23,7 @@ HEADERS += \
     add_window.h \
     mainwindow.h \
     mainwindow1.h \
+    mmainwindow.h \
     paper.h
 
 FORMS += \
@@ -29,6 +31,7 @@ FORMS += \
     add_window.ui \
     mainwindow.ui \
     mainwindow1.ui \
+    mmainwindow.ui \
     paper.ui
 
 # Default rules for deployment.

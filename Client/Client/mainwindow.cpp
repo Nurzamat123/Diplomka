@@ -4,6 +4,7 @@
 #include <add_window.h>
 #include <add_tt_window.h>
 #include <paper.h>
+#include <mmainwindow.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -37,9 +38,12 @@ void MainWindow::enter_info(QString &_access){
         second_window->deleteLater();
         this->setEnabled(true);
         if(access == "READ"){
-            ui->addButton->setEnabled(false);
-            ui->deleteButton->setEnabled(false);
-            ui->mainMenuButton->setEnabled(false);
+            //ui->addButton->setEnabled(false);
+            //ui->deleteButton->setEnabled(false);
+           // ui->mainMenuButton->setEnabled(false);
+            ui->addButton->setVisible(false);
+            ui->deleteButton->setVisible(false);
+            ui->mainMenuButton->setVisible(false);
             ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
             //ui->tableView->setVisible(false);
         }
@@ -189,5 +193,13 @@ void MainWindow::on_viewStatsButton_clicked()
 {
     paper_window = new paper;
     paper_window->show();
+}
+
+
+void MainWindow::on_mainMenuButton_clicked()
+{
+    this->setEnabled(false);
+    mmain_window = new mmainwindow;
+    mmain_window ->show();
 }
 

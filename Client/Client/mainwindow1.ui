@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -176,13 +176,16 @@
        <item row="3" column="0">
         <widget class="QPushButton" name="button_reg">
          <property name="styleSheet">
-          <string>
+          <string notr="true">QPushButton{
          background-color: #2196F3;
          color: white;
          border: none;
          border-radius: 10px;
          padding: 10px;
-        </string>
+  }
+          QPushButton:hover {
+              background-color: #1a74ba;
+          }</string>
          </property>
          <property name="text">
           <string>Регистрация</string>
