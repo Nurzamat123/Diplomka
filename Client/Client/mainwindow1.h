@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTcpSocket>
+#include <QTimer>
 
 namespace Ui {
 class mainwindow1;
@@ -27,12 +28,16 @@ private:
     QByteArray data;
     bool is_server_ready = false;
 
+    QTimer *blockTimer;
+    int pop =3;
 
 
 public slots:
     void but_enter_clicked();
     void but_reg_clicked();
     void read();
+
+    void enableInteraction();
 
 signals:
     void enter_info(QString &);

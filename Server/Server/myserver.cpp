@@ -30,6 +30,10 @@ void myserver::newconnect()
     connect(mthread,SIGNAL(send_login_pass(QString,QString)),this,SLOT(get_login_pass(QString,QString)));
     connect(this,SIGNAL(send_to_client_query(QByteArray&)),mthread,SLOT(send_to_client(QByteArray&)));
     connect(mthread,SIGNAL(hellomessage_signal()),this,SLOT(hellomessage_slot()));
+
+    connect(mthread,SIGNAL(timetable_signal()),this,SLOT(timetable_slot()));
+    connect(mthread,SIGNAL(add_timetstrings(QString,QString,QString,QString,QString)),this,SLOT(add_timetstrings_slot(QString,QString,QString,QString,QString)));
+
     connect(mthread,SIGNAL(reg_login_pass(QString,QString)),this,SLOT(reg_check(QString,QString)));
     connect(mthread,SIGNAL(vector_del_list(QString)),this,SLOT(vector_del_list_slot(QString)));
     connect(mthread,SIGNAL(add_strings(QString,QString,QString,QString)),this,SLOT(add_strings_slot(QString,QString,QString,QString)));
@@ -44,6 +48,16 @@ void myserver::by_thread(QString str)
 void myserver::get_login_pass(QString login, QString pass)
 {
     emit send_login_pass(login,pass);
+}
+
+void myserver::timetable_slot()
+{
+    emit timetable_signal();
+}
+
+void myserver::add_timetstrings_slot(QString number, QString name, QString day, QString start, QString end)
+{
+    emit add_timetStrings_signal(number,name,day,start,end);
 }
 
 void myserver::hellomessage_slot()

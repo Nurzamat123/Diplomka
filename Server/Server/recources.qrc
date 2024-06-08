@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>images/задний_фон_сервер.png</file>
+    </qresource>
+</RCC>

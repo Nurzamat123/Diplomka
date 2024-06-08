@@ -1,12 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QtSql>
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Серверная");
+
 
     server = new myserver;
 
@@ -15,6 +18,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(server,SIGNAL(send_to_textbrowser(QString)),this,SLOT(by_server(QString)));
     connect(ui->db_button,SIGNAL(clicked(bool)),this,SLOT(db_button_clicked()));
     connect(server,SIGNAL(send_login_pass(QString,QString)),this,SLOT(get_login_pass(QString,QString)));
+
+    connect(server,SIGNAL(timetable_signal()),this,SLOT(timetable_slot()));
+
+
     connect(server,SIGNAL(hellomessage_signal()),this,SLOT(hellomessage_slot()));
     connect(server,SIGNAL(reg_login_password(QString,QString)),this,SLOT(reg_login_pass(QString,QString)));
     connect(server,SIGNAL(del_signal(QString)),this,SLOT(delete_slot(QString)));
@@ -71,35 +78,69 @@ void MainWindow::get_login_pass(QString login, QString pass)
 {
     db = m_connect_db->get_db();
     if(db.open()){
-        QSqlQuery *query = new QSqlQuery(db);
-        query->exec("select * from Users where Login = '"+login+"' and Password = '"+pass+"'");
+        QSqlQuery query(db);
+        query.prepare("SELECT * FROM Users WHERE Login = :login AND Password = :pass");
+        query.bindValue(":login", login);
+        query.bindValue(":pass", pass);
 
-        while(query->next()){
-            if(query->value(1).toString()==login&&query->value(2).toString()==pass){
-                ui->textBrowser->append(get_time_and_text("Клиент с логином = "+login+" успешно подключился!"));
+        if(query.exec()){
+            if(query.next()){
+                ui->textBrowser->append(get_time_and_text("Клиент с логином = " + login + " успешно подключился!"));
                 data.clear();
-                QString access=query->value(3).toString();
+                QString access = query.value(3).toString();
                 QString h = "ok";
-                QDataStream out (&data,QIODevice::WriteOnly);
+                QDataStream out(&data, QIODevice::WriteOnly);
                 out.setVersion(QDataStream::Qt_6_3);
-                out<<qint16(0)<<h<<access;
+                out << qint16(0) << h << access;
                 out.device()->seek(0);
-                out<<qint16(data.size()-sizeof(qint16));
+                out << qint16(data.size() - sizeof(qint16));
                 server->send_to_client(data);
-            }
-            else{
-                ui->textBrowser->append(get_time_and_text("Клиент с логином = "+login+" не смог подключиться к серверу!"));
+            } else {
+                ui->textBrowser->append(get_time_and_text("Клиент с логином = " + login + " не смог подключиться к серверу!"));
                 data.clear();
                 QString h = "no";
-                QDataStream out(&data,QIODevice::WriteOnly);
+                QDataStream out(&data, QIODevice::WriteOnly);
                 out.setVersion(QDataStream::Qt_6_3);
-                out<<qint16(0)<<h;
+                out << qint16(0) << h;
                 out.device()->seek(0);
-                out<<qint16(data.size()-sizeof(qint16));
+                out << qint16(data.size() - sizeof(qint16));
                 server->send_to_client(data);
             }
+        } else {
+            qDebug() << "Query execution error: " << query.lastError().text();
         }
         db.close();
+    } else {
+        qDebug() << "Database open error: " << db.lastError().text();
+    }
+}
+
+
+void MainWindow::timetable_slot()
+{
+    if(db.open()){
+        QSqlQuery *query = new QSqlQuery(db);
+        QDataStream out(&data,QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_6_3);
+        data.clear();
+        out<<qint16(0);
+        query->exec("select * from [Нагрузка преподавателей]");
+        while(query->next()){
+            QString s1,s2,s3,s4,s5;
+            s1 = query->value(0).toString();
+            s2 = query->value(1).toString();
+            s3 = query->value(2).toString();
+            s4 = query->value(3).toString();
+            s5 = query->value(4).toString();
+            out<<s1<<s2<<s3<<s4<<s5;
+        }
+        out.device()->seek(0);
+        out<<qint16(data.size()-sizeof(qint16));
+        server->send_to_client(data);
+        db.close();
+    }
+    else {
+        qDebug()<<"db not open!";
     }
 }
 
@@ -171,6 +212,29 @@ void MainWindow::delete_slot(QString tmp)
     }
     else{
         qDebug()<<"База данных не доступна!";
+    }
+}
+
+void MainWindow::add_newval_totimet_slot(QString number, QString name, QString day, QString start, QString end)
+{
+    if (db.open()) {
+        QSqlQuery query(db);
+        query.prepare("INSERT INTO [Нагрузка преподавателей] ([ФИО], [День недели], [Начало урока],[Конец урока]) VALUES (:name, :day, :start, :end)");
+        if(!number.isEmpty()){
+            query.bindValue(":name", name);
+            query.bindValue(":day", day);
+            query.bindValue(":start", start);
+            query.bindValue(":end", end);
+        }
+        if (query.exec()) {
+            hellomessage_slot();
+        } else {
+            qDebug() << "11111" << query.lastError().text();
+        }
+
+        db.close();
+    } else {
+        qDebug() << "База данных не доступна!";
     }
 }
 

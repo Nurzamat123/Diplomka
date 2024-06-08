@@ -6,90 +6,143 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>848</width>
-    <height>578</height>
+    <width>840</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="centralwidget_2">
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <widget class="QStatusBar" name="statusBar">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>631</width>
-      <height>371</height>
+      <x>0</x>
+      <y>10</y>
+      <width>3</width>
+      <height>22</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="2">
-      <widget class="QPushButton" name="exit_button">
+   </widget>
+   <widget class="QWidget" name="centralwidget_4">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>671</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="titleLabel">
        <property name="styleSheet">
-        <string>
-        background-color: #2196F3;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 10px;
-       </string>
+        <string notr="true">font-size: 24px; color: white; background-color: #3a9ad9; padding: 10px; border-radius: 10px;</string>
        </property>
        <property name="text">
-        <string>Выйти</string>
+        <string>Автошкола Автолюкс</string>
        </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>exit_icon.png</normaloff>exit_icon.png</iconset>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="delete_button">
+     <item>
+      <widget class="QLabel" name="scheduleLabel">
        <property name="styleSheet">
-        <string>
-        background-color: #F44336;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 10px;
-       </string>
+        <string notr="true">font-size: 18px; color: white; background-color: #3a9ad9; padding: 5px; border-radius: 5px;</string>
        </property>
        <property name="text">
-        <string>Удалить</string>
+        <string>Расписание занятий</string>
        </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>delete_icon.png</normaloff>delete_icon.png</iconset>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
-     <item row="0" column="0" colspan="3">
+     <item>
       <widget class="QTableView" name="tableView">
        <property name="styleSheet">
-        <string>
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 5px;
-       </string>
+        <string notr="true">background-color: white; color: black; border: 1px solid #3a9ad9; border-radius: 5px;</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="add_button">
-       <property name="styleSheet">
-        <string>
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 10px;
-       </string>
-       </property>
-       <property name="text">
-        <string>Добавить</string>
-       </property>
-      </widget>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="viewStatsButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: #3a9ad9; color: white; border-radius: 10px; padding: 10px;</string>
+         </property>
+         <property name="text">
+          <string>Посмотреть статьи автошколы</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/icons/articles.png</normaloff>:/icons/articles.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="mainMenuButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: #d93a3a; color: white; border-radius: 10px; padding: 10px;</string>
+         </property>
+         <property name="text">
+          <string>Перейти на главное меню</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/icons/menu.png</normaloff>:/icons/menu.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="addButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: #3ad97b; color: white; border-radius: 10px; padding: 10px;</string>
+         </property>
+         <property name="text">
+          <string>Добавить</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="deleteButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: #d93ad9; color: white; border-radius: 10px; padding: 10px;</string>
+         </property>
+         <property name="text">
+          <string>Удалить</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/icons/delete.png</normaloff>:/icons/delete.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exitButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: #d9a63a; color: white; border-radius: 10px; padding: 10px;</string>
+         </property>
+         <property name="text">
+          <string>Выйти</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
@@ -99,12 +152,11 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>848</width>
+     <width>840</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources/>
  <connections/>

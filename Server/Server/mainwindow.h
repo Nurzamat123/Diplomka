@@ -40,9 +40,15 @@ public slots:
     void by_server(QString str);
     void is_open_db(bool);
     void get_login_pass(QString,QString);
+
+    void timetable_slot();
+
     void hellomessage_slot();
     void reg_login_pass(QString,QString);
     void delete_slot(QString);
+
+    void add_newval_totimet_slot(QString,QString,QString,QString,QString);
+
     void add_newval_totable_slot(QString,QString,QString,QString);
 
 };

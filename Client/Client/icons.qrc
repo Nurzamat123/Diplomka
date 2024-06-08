@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>images/server.png</file>
+        <file>images/ForStats.png</file>
+    </qresource>
+</RCC>

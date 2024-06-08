@@ -1,18 +1,20 @@
 #include "mainwindow1.h"
 #include "ui_mainwindow1.h"
-
+#include "QThread"
 
 mainwindow1::mainwindow1(QTcpSocket &_socket,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::mainwindow1)
+    , blockTimer(new QTimer(this))
 {
     ui->setupUi(this);
+
     this->socket = &_socket;
 
     this->resize(600,500);
 
-    this->setFixedWidth(450);
-    this->setFixedHeight(550);
+    this->setFixedWidth(750);
+    this->setFixedHeight(600);
 
     this->setWindowTitle("Авторизация");
 
@@ -28,6 +30,11 @@ mainwindow1::mainwindow1(QTcpSocket &_socket,QWidget *parent) :
         ui->info_label_enter->setText("Нет подключения к серверу!");
         ui->info_label_reg->setText("Нет подключения к серверу!");
     }
+
+    blockTimer->setInterval(10000);//10 seconds
+    blockTimer->setSingleShot(true);
+
+
 }
 
 void mainwindow1::but_enter_clicked(){
@@ -82,15 +89,34 @@ void mainwindow1::read(){
                 emit enter_info(access);
                 break;
             }
+            if(answer == "no"){
+                if(pop>0){
+                    qDebug()<<pop;
+                    ui->info_check_label->setText("Вы неправильно ввели данные при входе! Осталось попыток: "+QString::number(pop));
+                    pop--;
+                }
+                else {
+                    qDebug()<<"WAIT";
+                    // Connect timer signal to the slot
+                    connect(blockTimer, &QTimer::timeout, this, &mainwindow1::enableInteraction);
+                    ui->info_check_label->clear();
+                    ui->info_check_label->setText("Слишком много неверных попыток! Пожалуйста подождите");
+                    pop=3;
+                    // Disable interaction
+                    this->setEnabled(false);
+
+                    // Start the timer
+                    blockTimer->start();
+                }
+            }
             if(answer != "serverready"){
 
                 ui->info_label_enter->setText("Нет подключения к серверу!");
                 ui->info_label_reg->setText("Нет подключения к серверу!");
-                qDebug()<<answer;
             }
             else {
-                ui->info_label_enter->setText("Сервер готов!");
-                ui->info_label_reg->setText("Сервер готов!");
+                ui->info_label_enter->setText("Есть подключение к серверу!");
+                ui->info_label_reg->setText("Есть подключение к серверу!");
                 is_server_ready = true;
             }
             break;
@@ -99,6 +125,12 @@ void mainwindow1::read(){
     else {
         qDebug()<<"not";
     }
+}
+
+void mainwindow1::enableInteraction()
+{
+    ui->info_check_label->setText("Введите логин и пароль!");
+    this->setEnabled(true);
 }
 
 

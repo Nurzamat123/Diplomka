@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>10</y>
+      <y>20</y>
       <width>711</width>
       <height>521</height>
      </rect>
@@ -36,7 +36,7 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string>
+        <string notr="true">
         QTextBrowser {
             background-color: #f0f0f0;
             border: 1px solid #cccccc;
@@ -45,6 +45,7 @@
             font-family: Arial, sans-serif;
             font-size: 14pt;
         }
+rgb(136, 255, 134);
        </string>
        </property>
       </widget>
@@ -131,7 +132,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string>
+          <string notr="true">
           QPushButton {
               background-color: #008CBA;
               color: white;

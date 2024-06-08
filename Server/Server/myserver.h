@@ -27,6 +27,9 @@ public slots:
     void vector_del_list_slot(QString);
     void add_strings_slot(QString,QString,QString,QString);
 
+    void timetable_slot();
+    void add_timetstrings_slot(QString,QString,QString,QString,QString);
+
 signals:
     void send_to_textbrowser(QString str);
     void send_login_pass(QString,QString);
@@ -35,6 +38,10 @@ signals:
     void reg_login_password(QString,QString);
     void del_signal(QString);
     void add_strings_signal(QString,QString,QString,QString);
+
+    void timetable_signal();
+    void add_timetStrings_signal(QString,QString,QString,QString,QString);
+
 };
 
 #endif // MYSERVER_H

@@ -63,9 +63,31 @@ void mythread::read_client(){
                 emit reg_login_pass(login,pass);
             }
 
-            if(login == "___123___"){
+            if(login == "Kursanty"){
                 emit hellomessage_signal();
             }
+
+            if(login =="TimeTable")
+            {
+                emit timetable_signal();
+            }
+
+            if(login == "DEL_timet"){
+                QString str;
+                in>>str;
+                emit vector_del_list(str);
+            }
+
+            if(login == "ADD_timet"){
+                QString number,name,day,start,end;
+                in>>number;
+                in>>name;
+                in>>day;
+                in>>start;
+                in>>end;
+                emit add_timetstrings(number,name,day,start,end);
+            }
+
             else {
                 in>>password;
             }

@@ -10,22 +10,31 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    add_tt_window.cpp \
     add_window.cpp \
     main.cpp \
     mainwindow.cpp \
-    mainwindow1.cpp
+    mainwindow1.cpp \
+    paper.cpp
 
 HEADERS += \
+    add_tt_window.h \
     add_window.h \
     mainwindow.h \
-    mainwindow1.h
+    mainwindow1.h \
+    paper.h
 
 FORMS += \
+    add_tt_window.ui \
     add_window.ui \
     mainwindow.ui \
-    mainwindow1.ui
+    mainwindow1.ui \
+    paper.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    icons.qrc

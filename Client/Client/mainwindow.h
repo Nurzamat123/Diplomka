@@ -11,8 +11,8 @@
 #include <mainwindow1.h>
 #include <QStandardItemModel>
 #include "add_window.h"
-
-
+#include <add_tt_window.h>
+#include <paper.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -30,12 +30,16 @@ public:
 private:
     Ui::MainWindow *ui;
     mainwindow1 *second_window;
+
     QString access;
 
     QByteArray data;
     qint16 sizeblock = 0;
     QVector<QString> list_string;
     add_window *ad_window;
+
+    add_tt_window *ad_tt_window;
+    paper *paper_window;;
 
     QTcpSocket *socket;
 
@@ -47,10 +51,16 @@ public slots:
     void enter_info(QString &);
     void read_server();
     void button_delete();
-    void get_strings(QString,QString,QString,QString);
-    void on_exit_button_clicked();
-    void on_add_button_clicked();
 
-    void test();
+    void get_strings(QString,QString,QString,QString);
+
+    void get_timet_strings(QString,QString,QString,QString,QString);
+
+    void on_addButton_clicked();
+
+    void SetEnabled_True();
+private slots:
+    void on_exitButton_clicked();
+    void on_viewStatsButton_clicked();
 };
 #endif // MAINWINDOW_H

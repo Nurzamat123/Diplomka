@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "mainwindow1.h"
-#include "add_window.h"
+#include <add_window.h>
+#include <add_tt_window.h>
+#include <paper.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -11,12 +13,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     socket = new QTcpSocket(this);
 
+    ///////////////////////////////
     second_window = new mainwindow1(*socket);
     second_window->setWindowModality(Qt::ApplicationModal);
     second_window->show();
-
+    ///////////////////////////////
     connect(second_window,SIGNAL(enter_info(QString&)),this,SLOT(enter_info(QString&)));
-    connect(ui->delete_button,SIGNAL(clicked()),this,SLOT(button_delete()));
+    connect(ui->deleteButton,SIGNAL(clicked()),this,SLOT(button_delete()));
 
     this->setEnabled(false);
 
@@ -34,24 +37,24 @@ void MainWindow::enter_info(QString &_access){
         second_window->deleteLater();
         this->setEnabled(true);
         if(access == "READ"){
-            ui->add_button->setEnabled(false);
-            ui->delete_button->setEnabled(false);
-            //ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-            ui->tableView->setVisible(false);
+            ui->addButton->setEnabled(false);
+            ui->deleteButton->setEnabled(false);
+            ui->mainMenuButton->setEnabled(false);
+            ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+            //ui->tableView->setVisible(false);
         }
         else if(access=="RW")
             {
-            ui->add_button->setEnabled(true);
-            ui->delete_button->setEnabled(true);
+            ui->addButton->setEnabled(true);
+            ui->deleteButton->setEnabled(true);
             ui->tableView->setEditTriggers(QAbstractItemView::EditTriggers());
             }
-        QString s = "___123___";
+        QString s = "TimeTable";
         send_to_server(s);
     }
 }
 
 void MainWindow::read_server(){
-
     QDataStream in(socket);
     in.setVersion(QDataStream::Qt_6_3);
     if(in.status()==QDataStream::Ok){
@@ -75,11 +78,12 @@ void MainWindow::read_server(){
             break;
         }
     }
+
     QStandardItemModel *model;
     model = new QStandardItemModel;
     int f=0,g=0;
     for(int i=0;i<list_string.size();i++){
-        if(g==4){
+        if(g==5){
             g=0;
             f++;
         }
@@ -106,7 +110,7 @@ void MainWindow::button_delete(){
     }
     qDebug()<<number;
 
-    QString str = "DEL";
+    QString str = "DEL_timet";
 
     data.clear();
     QDataStream out(&data,QIODevice::WriteOnly);
@@ -118,13 +122,13 @@ void MainWindow::button_delete(){
 
 }
 
-void MainWindow::on_add_button_clicked()
+void MainWindow::on_addButton_clicked()
 {
     this->setEnabled(false);
-    ad_window = new add_window;
-    ad_window->show();
-    connect(ad_window,SIGNAL(send_strings(QString,QString,QString,QString)),this,SLOT(get_strings(QString,QString,QString,QString)));
-    connect(ad_window,SIGNAL(send_signal()),this,SLOT(test()));
+    ad_tt_window = new add_tt_window;
+    ad_tt_window->show();
+    connect(ad_tt_window,SIGNAL(send_timet_strings(QString,QString,QString,QString,QString)),this,SLOT(get_timet_strings(QString,QString,QString,QString,QString)));
+    connect(ad_tt_window,SIGNAL(send_signal()),this,SLOT(SetEnabled_True()));
 }
 
 void MainWindow::send_to_server(QString str){
@@ -151,14 +155,29 @@ void MainWindow::get_strings(QString number,QString name,QString tel, QString gr
     socket->write(data);
 }
 
-void MainWindow::on_exit_button_clicked()
+////////////Actual////////////////////////////
+void MainWindow::get_timet_strings(QString number, QString name, QString day, QString start, QString end)
 {
-    this->deleteLater();
+    delete ad_tt_window;
+    this->setEnabled(true);
+    QString str = "ADD_timet";
+    data.clear();
+    QDataStream out(&data,QIODevice::WriteOnly);
+    out.setVersion(QDataStream::Qt_6_3);
+    out<<qint16(0)<<str<<number<<name<<day<<start<<end;
+    out.device()->seek(0);
+    out<<qint16(data.size()-sizeof(qint16));
+    socket->write(data);
 }
 
-void MainWindow::test()
+void MainWindow::SetEnabled_True()
 {
     this->setEnabled(true);
+}
+
+void MainWindow::on_exitButton_clicked()
+{
+    this->deleteLater();
 }
 
 MainWindow::~MainWindow()
@@ -166,6 +185,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
+void MainWindow::on_viewStatsButton_clicked()
+{
+    paper_window = new paper;
+    paper_window->show();
+}
 
