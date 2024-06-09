@@ -124,7 +124,7 @@
        <string/>
       </property>
       <property name="placeholderText">
-       <string>Номер</string>
+       <string>Телефон номер</string>
       </property>
      </widget>
     </item>

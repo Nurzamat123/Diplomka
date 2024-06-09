@@ -54,16 +54,17 @@ public slots:
     void read_server();
     void button_delete();
 
-    void get_strings(QString,QString,QString,QString);
-
     void get_timet_strings(QString,QString,QString,QString,QString);
 
-    void on_addButton_clicked();
+    void addButton_clicked();
 
     void SetEnabled_True();
+
 private slots:
-    void on_exitButton_clicked();
-    void on_viewStatsButton_clicked();
-    void on_mainMenuButton_clicked();
+
+    void finish();
+    void exitButton_clicked();
+    void viewStatsButton_clicked();
+    void mainMenuButton_clicked();
 };
 #endif // MAINWINDOW_H

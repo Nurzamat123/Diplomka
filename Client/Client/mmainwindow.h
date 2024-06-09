@@ -8,9 +8,10 @@
 #include <QPushButton>
 #include <QTcpSocket>
 #include <QLabel>
-#include <mainwindow1.h>
 #include <QStandardItemModel>
 #include <employers.h>
+#include <cadets.h>
+#include <paper.h>
 
 namespace Ui {
 class mmainwindow;
@@ -21,21 +22,29 @@ class mmainwindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit mmainwindow(QWidget *parent = nullptr);
+    explicit mmainwindow(QTcpSocket &_socket,QWidget *parent = nullptr);
     ~mmainwindow();
 
 private:
     Ui::mmainwindow *ui;
 
+    QTcpSocket *socket;
+
     employers *emp_window;
+    cadets *cad_window;
+    paper *pap_window;
+
 
 signals:
     void send_end_signal();
-    void emp_clicked();
+    void send_back_signal();
 
 public slots:
     void exitButton_clicked();
     void empButton_clicked();
+    void cadButton_clicked();
+    void paperButton_clicked();
+    void timetButton_clicked();
 
     void SetEnabled_True();
 

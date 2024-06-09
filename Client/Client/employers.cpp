@@ -2,16 +2,20 @@
 #include "ui_employers.h"
 #include <add_emp_window.h>
 
-employers::employers(QWidget *parent)
+employers::employers(QTcpSocket &_socket,QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::employers)
 {
     ui->setupUi(this);
 
+    this->socket=&_socket;
+
+    connect(ui->addButton,SIGNAL(clicked()),this,SLOT(addButton_clicked()));
+    connect(ui->deleteButton,SIGNAL(clicked()),this,SLOT(deleteButton_clicked()));
+    connect(ui->exitButton,SIGNAL(clicked()),this,SLOT(exitButton_clicked()));
+
     connect(socket,SIGNAL(readyRead()),this,SLOT(read_server()));
     connect(socket,SIGNAL(disconnected()),this,SLOT(deleteLater()));
-
-    connect(ui->addButton,SIGNAL(clicked()),this,SLOT(on_addButton_clicked()));
     start();
 }
 
@@ -31,15 +35,10 @@ void employers::send_to_server(QString str)
     socket->write(data);
 }
 
-void employers::enter_info(QString &)
-{
-
-}
-
 void employers::start()
 {
     ui->tableView->setEditTriggers(QAbstractItemView::EditTriggers());
-    QString s = "Empoyers";
+    QString s = "Employers";
     send_to_server(s);
 }
 
@@ -104,7 +103,7 @@ void employers::SetEnabled_True()
     this->setEnabled(true);
 }
 
-void employers::on_addButton_clicked()
+void employers::addButton_clicked()
 {
     this->setEnabled(false);
     ad_emp_window = new add_emp_window;
@@ -114,7 +113,7 @@ void employers::on_addButton_clicked()
 }
 
 
-void employers::on_deleteButton_clicked()
+void employers::deleteButton_clicked()
 {
     int row = ui->tableView->selectionModel()->currentIndex().row();
         //qDebug()<<ui->tableView->selectionModel()->currentIndex().column();
@@ -142,7 +141,7 @@ void employers::on_deleteButton_clicked()
 }
 
 
-void employers::on_exitButton_clicked()
+void employers::exitButton_clicked()
 {
     emit send_emp_signal();
     this->deleteLater();

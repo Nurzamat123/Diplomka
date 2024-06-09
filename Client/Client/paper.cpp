@@ -7,6 +7,8 @@ paper::paper(QWidget *parent)
 {
     ui->setupUi(this);
 
+    connect(ui->ExitButton,SIGNAL(clicked()),this,SLOT(exitButton_clicked()));
+
     this->resize(600,500);
 
     this->setFixedWidth(1000);
@@ -18,8 +20,11 @@ paper::~paper()
     delete ui;
 }
 
-void paper::on_pushButton_clicked()
+void paper::exitButton_clicked()
 {
+    emit send_pap_signal();
     this->deleteLater();
 }
+
+
 

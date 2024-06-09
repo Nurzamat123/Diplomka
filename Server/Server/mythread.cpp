@@ -41,13 +41,13 @@ void mythread::read_client(){
             }
 
             in>>login;
-            if(login == "DEL"){
+            if(login == "DEL_cad"){
                 QString str;
                 in>>str;
                 emit vector_del_list(str);
             }
 
-            if(login == "ADD"){
+            if(login == "ADD_cad"){
                 QString number,name,tel,group;
                 in>>number;
                 in>>name;
@@ -97,6 +97,7 @@ void mythread::read_client(){
             }
 
             if(login == "ADD_emp"){
+
                 QString number,name,inn,position,tel;
                 in>>number;
                 in>>name;

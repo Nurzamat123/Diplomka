@@ -33,7 +33,7 @@
      <string notr="true">background-image: url(:/icons/images/ForStats.png);</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="ExitButton">
     <property name="geometry">
      <rect>
       <x>30</x>

@@ -21,6 +21,10 @@ MainWindow::MainWindow(QWidget *parent)
     ///////////////////////////////
     connect(second_window,SIGNAL(enter_info(QString&)),this,SLOT(enter_info(QString&)));
     connect(ui->deleteButton,SIGNAL(clicked()),this,SLOT(button_delete()));
+    connect(ui->addButton,SIGNAL(clicked()),this,SLOT(addButton_clicked()));
+    connect(ui->exitButton,SIGNAL(clicked()),this,SLOT(exitButton_clicked()));
+    connect(ui->viewStatsButton,SIGNAL(clicked()),this,SLOT(viewStatsButton_clicked()));
+    connect(ui->mainMenuButton,SIGNAL(clicked()),this,SLOT(mainMenuButton_clicked()));
 
     this->setEnabled(false);
 
@@ -126,7 +130,7 @@ void MainWindow::button_delete(){
 
 }
 
-void MainWindow::on_addButton_clicked()
+void MainWindow::addButton_clicked()
 {
     this->setEnabled(false);
     ad_tt_window = new add_tt_window;
@@ -140,20 +144,6 @@ void MainWindow::send_to_server(QString str){
     QDataStream out(&data,QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_6_3);
     out<<qint16(0)<<str;
-    out.device()->seek(0);
-    out<<qint16(data.size()-sizeof(qint16));
-    socket->write(data);
-}
-
-
-void MainWindow::get_strings(QString number,QString name,QString tel, QString group){
-    delete ad_window;
-    this->setEnabled(true);
-    QString str = "ADD";
-    data.clear();
-    QDataStream out(&data,QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_6_3);
-    out<<qint16(0)<<str<<number<<name<<tel<<group;
     out.device()->seek(0);
     out<<qint16(data.size()-sizeof(qint16));
     socket->write(data);
@@ -178,9 +168,15 @@ void MainWindow::SetEnabled_True()
 {
     this->setVisible(true);
     this->setEnabled(true);
+    connect(socket,SIGNAL(readyRead()),this,SLOT(read_server()));
 }
 
-void MainWindow::on_exitButton_clicked()
+void MainWindow::finish()
+{
+    this->deleteLater();
+}
+
+void MainWindow::exitButton_clicked()
 {
     this->deleteLater();
 }
@@ -190,19 +186,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_viewStatsButton_clicked()
+void MainWindow::viewStatsButton_clicked()
 {
     paper_window = new paper;
     paper_window->show();
 }
 
 
-void MainWindow::on_mainMenuButton_clicked()
+void MainWindow::mainMenuButton_clicked()
 {
     this->setEnabled(false);
     this->setVisible(false);
-    mmain_window = new mmainwindow;
+    mmain_window = new mmainwindow(*socket);
     mmain_window ->show();
-    connect(mmain_window,SIGNAL(send_end_signal()),this,SLOT(SetEnabled_True()));
+    connect(mmain_window,SIGNAL(send_back_signal()),this,SLOT(SetEnabled_True()));
+    connect(mmain_window,SIGNAL(send_end_signal()),this,SLOT(Finish()));
+    disconnect(socket,SIGNAL(readyRead()),this,SLOT(read_server()));
 }
 

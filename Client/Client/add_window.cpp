@@ -22,13 +22,13 @@ void add_window::add_button_clicked(){
         QMessageBox::critical(this,"Error","Вы неправильно ввели значения!",QMessageBox::Ok);
     }
     else {
-        emit send_strings(number,name,tel,group);
+        emit send_cadstrings(number,name,tel,group);
     }
 
 }
 
 void add_window::exit_button_clicked(){
-    emit send_signal();
+    emit send_cad_signal();
     this->deleteLater();
 }
 

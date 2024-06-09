@@ -259,6 +259,7 @@ void MainWindow::employers_slot()
             s5 = query->value(4).toString();
             out<<s1<<s2<<s3<<s4<<s5;
         }
+
         out.device()->seek(0);
         out<<qint16(data.size()-sizeof(qint16));
         server->send_to_client(data);
@@ -273,11 +274,11 @@ void MainWindow::add_newval_toemp_slot(QString number, QString name, QString inn
 {
     if (db.open()) {
         QSqlQuery query(db);
-        query.prepare("INSERT INTO Сотрудники ([ФИО], [ИНН], [Должность],[Номер телефона]) VALUES (:name, :inn, :position, :tel)");
+        query.prepare("INSERT INTO Сотрудники (ФИО, ИНН, Должность,[Номер телефона]) VALUES (:name, :inn, :position, :tel)");
         if(!number.isEmpty()){
             query.bindValue(":name", name);
             query.bindValue(":inn", inn);
-            query.bindValue(":posotion", position);
+            query.bindValue(":position", position);
             query.bindValue(":tel", tel);
         }
         if (query.exec()) {

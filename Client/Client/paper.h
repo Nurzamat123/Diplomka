@@ -15,8 +15,11 @@ public:
     explicit paper(QWidget *parent = nullptr);
     ~paper();
 
+signals:
+    void send_pap_signal();
+
 private slots:
-    void on_pushButton_clicked();
+    void exitButton_clicked();
 
 private:
     Ui::paper *ui;

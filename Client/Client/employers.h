@@ -22,7 +22,7 @@ class employers : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit employers(QWidget *parent = nullptr);
+    explicit employers(QTcpSocket &_socket,QWidget *parent = nullptr);
     ~employers();
 
 
@@ -44,15 +44,14 @@ private:
 signals:
         void send_emp_signal();
 public slots:
-        void enter_info(QString &);
 
     void read_server();
     void get_emp_strings(QString,QString,QString,QString,QString);
     void SetEnabled_True();
 
-    void on_addButton_clicked();
-    void on_deleteButton_clicked();
-    void on_exitButton_clicked();
+    void addButton_clicked();
+    void deleteButton_clicked();
+    void exitButton_clicked();
 };
 
 #endif // EMPLOYERS_H
