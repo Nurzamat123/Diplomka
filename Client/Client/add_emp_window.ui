@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>add_emp_window</class>
+ <widget class="QMainWindow" name="add_emp_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="centralwidget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>780</width>
+      <height>360</height>
+     </rect>
+    </property>
+    <widget class="QPushButton" name="add_but">
+     <property name="geometry">
+      <rect>
+       <x>319</x>
+       <y>220</y>
+       <width>205</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>
+     background-color: #4CAF50;
+     color: white;
+     border: none;
+     border-radius: 10px;
+     padding: 10px;
+    </string>
+     </property>
+     <property name="text">
+      <string>Добавить</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>add_icon.png</normaloff>add_icon.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="exit_but">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>220</y>
+       <width>204</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>
+     background-color: #F44336;
+     color: white;
+     border: none;
+     border-radius: 10px;
+     padding: 10px;
+    </string>
+     </property>
+     <property name="text">
+      <string>Отмена</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>cancel_icon.png</normaloff>cancel_icon.png</iconset>
+     </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>100</y>
+       <width>700</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLineEdit" name="number">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string>
+        border-radius: 10px;
+        padding: 5px;
+       </string>
+        </property>
+        <property name="placeholderText">
+         <string>ID</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="name">
+        <property name="styleSheet">
+         <string>
+        border-radius: 10px;
+        padding: 5px;
+       </string>
+        </property>
+        <property name="placeholderText">
+         <string>ФИО</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="inn">
+        <property name="styleSheet">
+         <string>
+        border-radius: 10px;
+        padding: 5px;
+       </string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>INN</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="position">
+        <property name="styleSheet">
+         <string>
+        border-radius: 10px;
+        padding: 5px;
+       </string>
+        </property>
+        <property name="placeholderText">
+         <string>Должность</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="tel">
+        <property name="styleSheet">
+         <string>
+        border-radius: 10px;
+        padding: 5px;
+       </string>
+        </property>
+        <property name="placeholderText">
+         <string>Номер телефона</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QStatusBar" name="statusbar_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>3</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

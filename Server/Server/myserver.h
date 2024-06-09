@@ -30,6 +30,9 @@ public slots:
     void timetable_slot();
     void add_timetstrings_slot(QString,QString,QString,QString,QString);
 
+    void employers_slot();
+    void add_empstrings_slot(QString,QString,QString,QString,QString);
+
 signals:
     void send_to_textbrowser(QString str);
     void send_login_pass(QString,QString);
@@ -41,6 +44,9 @@ signals:
 
     void timetable_signal();
     void add_timetStrings_signal(QString,QString,QString,QString,QString);
+
+    void employers_signal();
+    void add_empstrings_signal(QString,QString,QString,QString,QString);
 
 };
 

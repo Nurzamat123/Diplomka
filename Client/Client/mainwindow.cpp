@@ -176,6 +176,7 @@ void MainWindow::get_timet_strings(QString number, QString name, QString day, QS
 
 void MainWindow::SetEnabled_True()
 {
+    this->setVisible(true);
     this->setEnabled(true);
 }
 
@@ -199,7 +200,9 @@ void MainWindow::on_viewStatsButton_clicked()
 void MainWindow::on_mainMenuButton_clicked()
 {
     this->setEnabled(false);
+    this->setVisible(false);
     mmain_window = new mmainwindow;
     mmain_window ->show();
+    connect(mmain_window,SIGNAL(send_end_signal()),this,SLOT(SetEnabled_True()));
 }
 

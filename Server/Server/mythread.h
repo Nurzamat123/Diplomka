@@ -26,15 +26,16 @@ public slots:
 signals:
     void send_to_server(QString);
     void send_login_pass(QString login,QString pass);
-
-    void timetable_signal();
-
     void hellomessage_signal();
     void reg_login_pass(QString,QString);
     void vector_del_list(QString);
     void add_strings(QString,QString,QString,QString);
 
+    void timetable_signal();
     void add_timetstrings(QString,QString,QString,QString,QString);
+
+    void employers_signal();
+    void add_empstrings(QString,QString,QString,QString,QString);
 };
 
 #endif // MYTHREAD_H

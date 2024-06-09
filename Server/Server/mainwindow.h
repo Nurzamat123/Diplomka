@@ -41,15 +41,20 @@ public slots:
     void is_open_db(bool);
     void get_login_pass(QString,QString);
 
-    void timetable_slot();
 
+
+    void add_newval_totable_slot(QString,QString,QString,QString);
     void hellomessage_slot();
     void reg_login_pass(QString,QString);
     void delete_slot(QString);
 
+    void timetable_slot();
     void add_newval_totimet_slot(QString,QString,QString,QString,QString);
 
-    void add_newval_totable_slot(QString,QString,QString,QString);
+    void employers_slot();
+    void add_newval_toemp_slot(QString,QString,QString,QString,QString);
+
+
 
 };
 #endif // MAINWINDOW_H

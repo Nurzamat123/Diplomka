@@ -71,7 +71,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QPushButton" name="empButton">
+           <widget class="QPushButton" name="EmpButton">
             <property name="styleSheet">
              <string notr="true">
              QPushButton {
@@ -92,7 +92,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="kurButton">
+           <widget class="QPushButton" name="CadButton">
             <property name="styleSheet">
              <string notr="true">
              QPushButton {

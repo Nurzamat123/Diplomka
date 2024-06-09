@@ -34,6 +34,9 @@ void myserver::newconnect()
     connect(mthread,SIGNAL(timetable_signal()),this,SLOT(timetable_slot()));
     connect(mthread,SIGNAL(add_timetstrings(QString,QString,QString,QString,QString)),this,SLOT(add_timetstrings_slot(QString,QString,QString,QString,QString)));
 
+    connect(mthread,SIGNAL(employers_signal()),this,SLOT(employers_slot()));
+    connect(mthread,SIGNAL(add_empstrings(QString,QString,QString,QString,QString)),this,SLOT(add_empstrings_slot(QString,QString,QString,QString,QString)));
+
     connect(mthread,SIGNAL(reg_login_pass(QString,QString)),this,SLOT(reg_check(QString,QString)));
     connect(mthread,SIGNAL(vector_del_list(QString)),this,SLOT(vector_del_list_slot(QString)));
     connect(mthread,SIGNAL(add_strings(QString,QString,QString,QString)),this,SLOT(add_strings_slot(QString,QString,QString,QString)));
@@ -58,6 +61,16 @@ void myserver::timetable_slot()
 void myserver::add_timetstrings_slot(QString number, QString name, QString day, QString start, QString end)
 {
     emit add_timetStrings_signal(number,name,day,start,end);
+}
+
+void myserver::employers_slot()
+{
+    emit employers_signal();
+}
+
+void myserver::add_empstrings_slot(QString number, QString name, QString inn, QString position, QString tel)
+{
+    emit add_empstrings_signal(number,name,inn,position,tel);
 }
 
 void myserver::hellomessage_slot()

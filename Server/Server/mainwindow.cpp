@@ -20,7 +20,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(server,SIGNAL(send_login_pass(QString,QString)),this,SLOT(get_login_pass(QString,QString)));
 
     connect(server,SIGNAL(timetable_signal()),this,SLOT(timetable_slot()));
+    connect(server,SIGNAL(add_timetStrings_signal(QString,QString,QString,QString,QString)),this,SLOT(add_newval_totimet_slot(QString,QString,QString,QString,QString)));
 
+    connect(server,SIGNAL(employers_signal()),this,SLOT(employers_slot()));
+    connect(server,SIGNAL(add_empstrings_signal(QString,QString,QString,QString,QString)),this,SLOT(add_newval_toemp_slot(QString,QString,QString,QString,QString)));
 
     connect(server,SIGNAL(hellomessage_signal()),this,SLOT(hellomessage_slot()));
     connect(server,SIGNAL(reg_login_password(QString,QString)),this,SLOT(reg_login_pass(QString,QString)));
@@ -227,7 +230,58 @@ void MainWindow::add_newval_totimet_slot(QString number, QString name, QString d
             query.bindValue(":end", end);
         }
         if (query.exec()) {
-            hellomessage_slot();
+            timetable_slot();
+        } else {
+            qDebug() << "11111" << query.lastError().text();
+        }
+
+        db.close();
+    } else {
+        qDebug() << "База данных не доступна!";
+    }
+}
+
+void MainWindow::employers_slot()
+{
+    if(db.open()){
+        QSqlQuery *query = new QSqlQuery(db);
+        QDataStream out(&data,QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_6_3);
+        data.clear();
+        out<<qint16(0);
+        query->exec("select * from [Сотрудники]");
+        while(query->next()){
+            QString s1,s2,s3,s4,s5;
+            s1 = query->value(0).toString();
+            s2 = query->value(1).toString();
+            s3 = query->value(2).toString();
+            s4 = query->value(3).toString();
+            s5 = query->value(4).toString();
+            out<<s1<<s2<<s3<<s4<<s5;
+        }
+        out.device()->seek(0);
+        out<<qint16(data.size()-sizeof(qint16));
+        server->send_to_client(data);
+        db.close();
+    }
+    else {
+        qDebug()<<"db not open!";
+    }
+}
+
+void MainWindow::add_newval_toemp_slot(QString number, QString name, QString inn, QString position, QString tel)
+{
+    if (db.open()) {
+        QSqlQuery query(db);
+        query.prepare("INSERT INTO Сотрудники ([ФИО], [ИНН], [Должность],[Номер телефона]) VALUES (:name, :inn, :position, :tel)");
+        if(!number.isEmpty()){
+            query.bindValue(":name", name);
+            query.bindValue(":inn", inn);
+            query.bindValue(":posotion", position);
+            query.bindValue(":tel", tel);
+        }
+        if (query.exec()) {
+            employers_slot();
         } else {
             qDebug() << "11111" << query.lastError().text();
         }

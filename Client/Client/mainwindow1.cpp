@@ -129,7 +129,7 @@ void mainwindow1::read(){
 
 void mainwindow1::enableInteraction()
 {
-    ui->info_check_label->setText("Введите логин и пароль!");
+    ui->info_check_label->setText("Введите логин и пароль");
     this->setEnabled(true);
 }
 

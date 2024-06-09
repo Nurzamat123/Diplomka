@@ -63,7 +63,7 @@ void mythread::read_client(){
                 emit reg_login_pass(login,pass);
             }
 
-            if(login == "Kursanty"){
+            if(login == "Cadets"){
                 emit hellomessage_signal();
             }
 
@@ -86,6 +86,24 @@ void mythread::read_client(){
                 in>>start;
                 in>>end;
                 emit add_timetstrings(number,name,day,start,end);
+            }
+            if(login == "Employers"){
+                emit employers_signal();
+            }
+            if(login == "DEL_emp"){
+                QString str;
+                in>>str;
+                emit vector_del_list(str);
+            }
+
+            if(login == "ADD_emp"){
+                QString number,name,inn,position,tel;
+                in>>number;
+                in>>name;
+                in>>inn;
+                in>>position;
+                in>>tel;
+                emit add_empstrings(number,name,inn,position,tel);
             }
 
             else {

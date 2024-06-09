@@ -51,6 +51,8 @@ static constexpr auto qt_meta_stringdata_CLASSmyserverENDCLASS = QtMocHelpers::s
     "add_strings_signal",
     "timetable_signal",
     "add_timetStrings_signal",
+    "employers_signal",
+    "add_empstrings_signal",
     "newconnect",
     "by_thread",
     "get_login_pass",
@@ -61,11 +63,13 @@ static constexpr auto qt_meta_stringdata_CLASSmyserverENDCLASS = QtMocHelpers::s
     "vector_del_list_slot",
     "add_strings_slot",
     "timetable_slot",
-    "add_timetstrings_slot"
+    "add_timetstrings_slot",
+    "employers_slot",
+    "add_empstrings_slot"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSmyserverENDCLASS_t {
-    uint offsetsAndSizes[48];
+    uint offsetsAndSizes[56];
     char stringdata0[9];
     char stringdata1[20];
     char stringdata2[1];
@@ -79,17 +83,21 @@ struct qt_meta_stringdata_CLASSmyserverENDCLASS_t {
     char stringdata10[19];
     char stringdata11[17];
     char stringdata12[24];
-    char stringdata13[11];
-    char stringdata14[10];
-    char stringdata15[15];
-    char stringdata16[6];
-    char stringdata17[5];
-    char stringdata18[18];
-    char stringdata19[10];
-    char stringdata20[21];
-    char stringdata21[17];
-    char stringdata22[15];
-    char stringdata23[22];
+    char stringdata13[17];
+    char stringdata14[22];
+    char stringdata15[11];
+    char stringdata16[10];
+    char stringdata17[15];
+    char stringdata18[6];
+    char stringdata19[5];
+    char stringdata20[18];
+    char stringdata21[10];
+    char stringdata22[21];
+    char stringdata23[17];
+    char stringdata24[15];
+    char stringdata25[22];
+    char stringdata26[15];
+    char stringdata27[20];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSmyserverENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -108,17 +116,21 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSmyserverENDCLASS_t qt_meta_stri
         QT_MOC_LITERAL(133, 18),  // "add_strings_signal"
         QT_MOC_LITERAL(152, 16),  // "timetable_signal"
         QT_MOC_LITERAL(169, 23),  // "add_timetStrings_signal"
-        QT_MOC_LITERAL(193, 10),  // "newconnect"
-        QT_MOC_LITERAL(204, 9),  // "by_thread"
-        QT_MOC_LITERAL(214, 14),  // "get_login_pass"
-        QT_MOC_LITERAL(229, 5),  // "login"
-        QT_MOC_LITERAL(235, 4),  // "pass"
-        QT_MOC_LITERAL(240, 17),  // "hellomessage_slot"
-        QT_MOC_LITERAL(258, 9),  // "reg_check"
-        QT_MOC_LITERAL(268, 20),  // "vector_del_list_slot"
-        QT_MOC_LITERAL(289, 16),  // "add_strings_slot"
-        QT_MOC_LITERAL(306, 14),  // "timetable_slot"
-        QT_MOC_LITERAL(321, 21)   // "add_timetstrings_slot"
+        QT_MOC_LITERAL(193, 16),  // "employers_signal"
+        QT_MOC_LITERAL(210, 21),  // "add_empstrings_signal"
+        QT_MOC_LITERAL(232, 10),  // "newconnect"
+        QT_MOC_LITERAL(243, 9),  // "by_thread"
+        QT_MOC_LITERAL(253, 14),  // "get_login_pass"
+        QT_MOC_LITERAL(268, 5),  // "login"
+        QT_MOC_LITERAL(274, 4),  // "pass"
+        QT_MOC_LITERAL(279, 17),  // "hellomessage_slot"
+        QT_MOC_LITERAL(297, 9),  // "reg_check"
+        QT_MOC_LITERAL(307, 20),  // "vector_del_list_slot"
+        QT_MOC_LITERAL(328, 16),  // "add_strings_slot"
+        QT_MOC_LITERAL(345, 14),  // "timetable_slot"
+        QT_MOC_LITERAL(360, 21),  // "add_timetstrings_slot"
+        QT_MOC_LITERAL(382, 14),  // "employers_slot"
+        QT_MOC_LITERAL(397, 19)   // "add_empstrings_slot"
     },
     "myserver",
     "send_to_textbrowser",
@@ -133,6 +145,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSmyserverENDCLASS_t qt_meta_stri
     "add_strings_signal",
     "timetable_signal",
     "add_timetStrings_signal",
+    "employers_signal",
+    "add_empstrings_signal",
     "newconnect",
     "by_thread",
     "get_login_pass",
@@ -143,7 +157,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSmyserverENDCLASS_t qt_meta_stri
     "vector_del_list_slot",
     "add_strings_slot",
     "timetable_slot",
-    "add_timetstrings_slot"
+    "add_timetstrings_slot",
+    "employers_slot",
+    "add_empstrings_slot"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -155,34 +171,38 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSmyserverENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       9,       // signalCount
+      11,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  122,    2, 0x06,    1 /* Public */,
-       4,    2,  125,    2, 0x06,    3 /* Public */,
-       5,    1,  130,    2, 0x06,    6 /* Public */,
-       7,    0,  133,    2, 0x06,    8 /* Public */,
-       8,    2,  134,    2, 0x06,    9 /* Public */,
-       9,    1,  139,    2, 0x06,   12 /* Public */,
-      10,    4,  142,    2, 0x06,   14 /* Public */,
-      11,    0,  151,    2, 0x06,   19 /* Public */,
-      12,    5,  152,    2, 0x06,   20 /* Public */,
+       1,    1,  146,    2, 0x06,    1 /* Public */,
+       4,    2,  149,    2, 0x06,    3 /* Public */,
+       5,    1,  154,    2, 0x06,    6 /* Public */,
+       7,    0,  157,    2, 0x06,    8 /* Public */,
+       8,    2,  158,    2, 0x06,    9 /* Public */,
+       9,    1,  163,    2, 0x06,   12 /* Public */,
+      10,    4,  166,    2, 0x06,   14 /* Public */,
+      11,    0,  175,    2, 0x06,   19 /* Public */,
+      12,    5,  176,    2, 0x06,   20 /* Public */,
+      13,    0,  187,    2, 0x06,   26 /* Public */,
+      14,    5,  188,    2, 0x06,   27 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      13,    0,  163,    2, 0x0a,   26 /* Public */,
-      14,    1,  164,    2, 0x0a,   27 /* Public */,
-      15,    2,  167,    2, 0x0a,   29 /* Public */,
-      18,    0,  172,    2, 0x0a,   32 /* Public */,
-      19,    2,  173,    2, 0x0a,   33 /* Public */,
-      20,    1,  178,    2, 0x0a,   36 /* Public */,
-      21,    4,  181,    2, 0x0a,   38 /* Public */,
-      22,    0,  190,    2, 0x0a,   43 /* Public */,
-      23,    5,  191,    2, 0x0a,   44 /* Public */,
+      15,    0,  199,    2, 0x0a,   33 /* Public */,
+      16,    1,  200,    2, 0x0a,   34 /* Public */,
+      17,    2,  203,    2, 0x0a,   36 /* Public */,
+      20,    0,  208,    2, 0x0a,   39 /* Public */,
+      21,    2,  209,    2, 0x0a,   40 /* Public */,
+      22,    1,  214,    2, 0x0a,   43 /* Public */,
+      23,    4,  217,    2, 0x0a,   45 /* Public */,
+      24,    0,  226,    2, 0x0a,   50 /* Public */,
+      25,    5,  227,    2, 0x0a,   51 /* Public */,
+      26,    0,  238,    2, 0x0a,   57 /* Public */,
+      27,    5,  239,    2, 0x0a,   58 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -194,15 +214,19 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSmyserverENDCLASS[] = {
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    2,    2,    2,    2,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    2,    2,    2,    2,    2,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    2,    2,    2,    2,    2,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    2,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,   16,   17,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   18,   19,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    2,    2,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    2,    2,    2,    2,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    2,    2,    2,    2,    2,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    2,    2,    2,    2,    2,
 
@@ -252,6 +276,15 @@ Q_CONSTINIT const QMetaObject myserver::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'employers_signal'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'add_empstrings_signal'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'newconnect'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'by_thread'
@@ -284,6 +317,15 @@ Q_CONSTINIT const QMetaObject myserver::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'employers_slot'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'add_empstrings_slot'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>
     >,
     nullptr
@@ -304,15 +346,19 @@ void myserver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 6: _t->add_strings_signal((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4]))); break;
         case 7: _t->timetable_signal(); break;
         case 8: _t->add_timetStrings_signal((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5]))); break;
-        case 9: _t->newconnect(); break;
-        case 10: _t->by_thread((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 11: _t->get_login_pass((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 12: _t->hellomessage_slot(); break;
-        case 13: _t->reg_check((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 14: _t->vector_del_list_slot((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 15: _t->add_strings_slot((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4]))); break;
-        case 16: _t->timetable_slot(); break;
-        case 17: _t->add_timetstrings_slot((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5]))); break;
+        case 9: _t->employers_signal(); break;
+        case 10: _t->add_empstrings_signal((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5]))); break;
+        case 11: _t->newconnect(); break;
+        case 12: _t->by_thread((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 13: _t->get_login_pass((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 14: _t->hellomessage_slot(); break;
+        case 15: _t->reg_check((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 16: _t->vector_del_list_slot((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 17: _t->add_strings_slot((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4]))); break;
+        case 18: _t->timetable_slot(); break;
+        case 19: _t->add_timetstrings_slot((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5]))); break;
+        case 20: _t->employers_slot(); break;
+        case 21: _t->add_empstrings_slot((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -380,6 +426,20 @@ void myserver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
                 return;
             }
         }
+        {
+            using _t = void (myserver::*)();
+            if (_t _q_method = &myserver::employers_signal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 9;
+                return;
+            }
+        }
+        {
+            using _t = void (myserver::*)(QString , QString , QString , QString , QString );
+            if (_t _q_method = &myserver::add_empstrings_signal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 10;
+                return;
+            }
+        }
     }
 }
 
@@ -402,13 +462,13 @@ int myserver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 22;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 22)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 18;
+        _id -= 22;
     }
     return _id;
 }
@@ -472,5 +532,18 @@ void myserver::add_timetStrings_signal(QString _t1, QString _t2, QString _t3, QS
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t5))) };
     QMetaObject::activate(this, &staticMetaObject, 8, _a);
+}
+
+// SIGNAL 9
+void myserver::employers_signal()
+{
+    QMetaObject::activate(this, &staticMetaObject, 9, nullptr);
+}
+
+// SIGNAL 10
+void myserver::add_empstrings_signal(QString _t1, QString _t2, QString _t3, QString _t4, QString _t5)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t5))) };
+    QMetaObject::activate(this, &staticMetaObject, 10, _a);
 }
 QT_WARNING_POP
