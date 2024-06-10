@@ -1,0 +1,10 @@
+debug/connect_db.o
+debug/main.o
+debug/mainwindow.o
+debug/myserver.o
+debug/mythread.o
+debug/qrc_res.o
+debug/moc_connect_db.o
+debug/moc_mainwindow.o
+debug/moc_myserver.o
+debug/moc_mythread.o

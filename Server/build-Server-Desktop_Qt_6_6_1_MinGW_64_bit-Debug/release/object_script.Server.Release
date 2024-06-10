@@ -1,0 +1,10 @@
+release/connect_db.o
+release/main.o
+release/mainwindow.o
+release/myserver.o
+release/mythread.o
+release/qrc_res.o
+release/moc_connect_db.o
+release/moc_mainwindow.o
+release/moc_myserver.o
+release/moc_mythread.o

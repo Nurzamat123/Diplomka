@@ -35,7 +35,7 @@
      <rect>
       <x>50</x>
       <y>20</y>
-      <width>671</width>
+      <width>676</width>
       <height>401</height>
      </rect>
     </property>
@@ -81,7 +81,7 @@
           <string notr="true">background-color: #3a9ad9; color: white; border-radius: 10px; padding: 10px;</string>
          </property>
          <property name="text">
-          <string>Посмотреть статьи автошколы</string>
+          <string>Открыть учебный материал</string>
          </property>
          <property name="icon">
           <iconset>

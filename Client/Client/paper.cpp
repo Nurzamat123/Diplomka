@@ -11,8 +11,8 @@ paper::paper(QWidget *parent)
 
     this->resize(600,500);
 
-    this->setFixedWidth(1000);
-    this->setFixedHeight(750);
+    //this->setFixedWidth(800);
+    //this->setFixedHeight(650);
 }
 
 paper::~paper()
