@@ -41,8 +41,7 @@ public:
         if (add_tt_window->objectName().isEmpty())
             add_tt_window->setObjectName("add_tt_window");
         add_tt_window->resize(800, 600);
-        add_tt_window->setStyleSheet(QString::fromUtf8("background-image: url(:/icons/images/server.png);\n"
-""));
+        add_tt_window->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(add_tt_window);
         centralwidget->setObjectName("centralwidget");
         add_but = new QPushButton(centralwidget);

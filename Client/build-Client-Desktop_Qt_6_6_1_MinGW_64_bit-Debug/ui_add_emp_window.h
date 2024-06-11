@@ -59,6 +59,13 @@ public:
         exit_but = new QPushButton(centralwidget_2);
         exit_but->setObjectName("exit_but");
         exit_but->setGeometry(QRect(530, 220, 204, 40));
+        exit_but->setStyleSheet(QString::fromUtf8("\n"
+"     background-color: #F44336;\n"
+"     color: white;\n"
+"     border: none;\n"
+"     border-radius: 10px;\n"
+"     padding: 10px;\n"
+"    "));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8("cancel_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         exit_but->setIcon(icon1);
@@ -125,13 +132,6 @@ public:
 "     padding: 10px;\n"
 "    ", nullptr));
         add_but->setText(QCoreApplication::translate("add_emp_window", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
-        exit_but->setStyleSheet(QCoreApplication::translate("add_emp_window", "\n"
-"     background-color: #F44336;\n"
-"     color: white;\n"
-"     border: none;\n"
-"     border-radius: 10px;\n"
-"     padding: 10px;\n"
-"    ", nullptr));
         exit_but->setText(QCoreApplication::translate("add_emp_window", "\320\236\321\202\320\274\320\265\320\275\320\260", nullptr));
         number->setStyleSheet(QCoreApplication::translate("add_emp_window", "\n"
 "        border-radius: 10px;\n"

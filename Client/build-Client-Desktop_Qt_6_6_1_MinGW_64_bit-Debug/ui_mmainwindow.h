@@ -53,7 +53,7 @@ public:
         centralwidget_2 = new QWidget(centralwidget);
         centralwidget_2->setObjectName("centralwidget_2");
         centralwidget_2->setGeometry(QRect(0, -10, 811, 551));
-        centralwidget_2->setStyleSheet(QString::fromUtf8("background-color: rgb(42, 0, 125);"));
+        centralwidget_2->setStyleSheet(QString::fromUtf8("background-color: #ffffff;"));
         gridLayoutWidget = new QWidget(centralwidget_2);
         gridLayoutWidget->setObjectName("gridLayoutWidget");
         gridLayoutWidget->setGeometry(QRect(70, 30, 671, 491));
@@ -64,8 +64,9 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         nameofAuto_label = new QLabel(gridLayoutWidget);
         nameofAuto_label->setObjectName("nameofAuto_label");
-        nameofAuto_label->setStyleSheet(QString::fromUtf8("font-size: 24px; font-weight: bold;\n"
-"background: color #7d0000;"));
+        nameofAuto_label->setStyleSheet(QString::fromUtf8("font-size: 32px; font-weight: bold;\n"
+"background: color #d80000;\n"
+""));
         nameofAuto_label->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(nameofAuto_label);
@@ -76,7 +77,7 @@ public:
         font.setBold(true);
         maintext_label->setFont(font);
         maintext_label->setStyleSheet(QString::fromUtf8("font-size: 20px; margin-bottom: 20px;\n"
-"background: color #0077b3;\n"
+"background: color #008800;\n"
 "\n"
 "\n"
 ""));
@@ -88,9 +89,8 @@ public:
         verticalLayout_2->setObjectName("verticalLayout_2");
         EmpButton = new QPushButton(gridLayoutWidget);
         EmpButton->setObjectName("EmpButton");
-        EmpButton->setStyleSheet(QString::fromUtf8("\n"
-"             QPushButton {\n"
-"                 background-color: #4CAF50;\n"
+        EmpButton->setStyleSheet(QString::fromUtf8(" QPushButton {\n"
+"                 background-color: #b97b00;\n"
 "                 color: white;\n"
 "                 font-size: 16px;\n"
 "                 padding: 10px;\n"
@@ -107,7 +107,7 @@ public:
         CadButton->setObjectName("CadButton");
         CadButton->setStyleSheet(QString::fromUtf8("\n"
 "             QPushButton {\n"
-"                 background-color: #2196F3;\n"
+"                 background-color: #b97b00;\n"
 "                 color: white;\n"
 "                 font-size: 16px;\n"
 "                 padding: 10px;\n"
@@ -124,7 +124,7 @@ public:
         paperButton->setObjectName("paperButton");
         paperButton->setStyleSheet(QString::fromUtf8("\n"
 "             QPushButton {\n"
-"                 background-color: #f44336;\n"
+"                 background-color: #b97b00;\n"
 "                 color: white;\n"
 "                 font-size: 16px;\n"
 "                 padding: 10px;\n"
@@ -141,7 +141,7 @@ public:
         timetButton->setObjectName("timetButton");
         timetButton->setStyleSheet(QString::fromUtf8("\n"
 "             QPushButton {\n"
-"                 background-color: #ff9800;\n"
+"                 background-color: #b97b00;\n"
 "                 color: white;\n"
 "                 font-size: 16px;\n"
 "                 padding: 10px;\n"
@@ -158,7 +158,7 @@ public:
         exitButton->setObjectName("exitButton");
         exitButton->setStyleSheet(QString::fromUtf8("\n"
 "             QPushButton {\n"
-"                 background-color: #9E9E9E;\n"
+"                 background-color: #d80000;\n"
 "                 color: white;\n"
 "                 font-size: 16px;\n"
 "                 padding: 10px;\n"
@@ -201,7 +201,7 @@ public:
         maintext_label->setText(QCoreApplication::translate("mmainwindow", "\320\223\320\273\320\260\320\262\320\275\320\276\320\265 \320\274\320\265\320\275\321\216", nullptr));
         EmpButton->setText(QCoreApplication::translate("mmainwindow", "\320\244\320\276\321\200\320\274\320\260 \321\201\320\276\321\202\321\200\321\203\320\264\320\275\320\270\320\272\320\276\320\262", nullptr));
         CadButton->setText(QCoreApplication::translate("mmainwindow", "\320\244\320\276\321\200\320\274\320\260 \320\272\321\203\321\200\321\201\320\260\320\275\321\202\320\276\320\262", nullptr));
-        paperButton->setText(QCoreApplication::translate("mmainwindow", "\320\241\321\202\320\260\321\202\321\214\320\270", nullptr));
+        paperButton->setText(QCoreApplication::translate("mmainwindow", "\320\243\321\207\320\265\320\261\320\275\321\213\320\271 \320\274\320\260\321\202\320\265\321\200\320\270\320\260\320\273", nullptr));
         timetButton->setText(QCoreApplication::translate("mmainwindow", "\320\240\320\260\321\201\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\267\320\260\320\275\321\217\321\202\320\270\320\271", nullptr));
         exitButton->setText(QCoreApplication::translate("mmainwindow", "\320\222\321\213\321\205\320\276\320\264", nullptr));
     } // retranslateUi

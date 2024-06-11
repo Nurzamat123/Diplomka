@@ -59,7 +59,7 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string>
+      <string notr="true">
      background-color: #F44336;
      color: white;
      border: none;

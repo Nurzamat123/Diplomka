@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(42, 0, 125);</string>
+     <string notr="true">background-color: #ffffff;</string>
     </property>
     <widget class="QWidget" name="gridLayoutWidget">
      <property name="geometry">
@@ -44,8 +44,9 @@
         <item>
          <widget class="QLabel" name="nameofAuto_label">
           <property name="styleSheet">
-           <string notr="true">font-size: 24px; font-weight: bold;
-background: color #7d0000;</string>
+           <string notr="true">font-size: 32px; font-weight: bold;
+background: color #d80000;
+</string>
           </property>
           <property name="text">
            <string>Автошкола Автолюкс</string>
@@ -65,7 +66,7 @@ background: color #7d0000;</string>
           </property>
           <property name="styleSheet">
            <string notr="true">font-size: 20px; margin-bottom: 20px;
-background: color #0077b3;
+background: color #008800;
 
 
 </string>
@@ -83,9 +84,8 @@ background: color #0077b3;
           <item>
            <widget class="QPushButton" name="EmpButton">
             <property name="styleSheet">
-             <string notr="true">
-             QPushButton {
-                 background-color: #4CAF50;
+             <string notr="true"> QPushButton {
+                 background-color: #b97b00;
                  color: white;
                  font-size: 16px;
                  padding: 10px;
@@ -106,7 +106,7 @@ background: color #0077b3;
             <property name="styleSheet">
              <string notr="true">
              QPushButton {
-                 background-color: #2196F3;
+                 background-color: #b97b00;
                  color: white;
                  font-size: 16px;
                  padding: 10px;
@@ -127,7 +127,7 @@ background: color #0077b3;
             <property name="styleSheet">
              <string notr="true">
              QPushButton {
-                 background-color: #f44336;
+                 background-color: #b97b00;
                  color: white;
                  font-size: 16px;
                  padding: 10px;
@@ -148,7 +148,7 @@ background: color #0077b3;
             <property name="styleSheet">
              <string notr="true">
              QPushButton {
-                 background-color: #ff9800;
+                 background-color: #b97b00;
                  color: white;
                  font-size: 16px;
                  padding: 10px;
@@ -169,7 +169,7 @@ background: color #0077b3;
             <property name="styleSheet">
              <string notr="true">
              QPushButton {
-                 background-color: #9E9E9E;
+                 background-color: #d80000;
                  color: white;
                  font-size: 16px;
                  padding: 10px;

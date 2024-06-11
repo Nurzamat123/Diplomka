@@ -14,7 +14,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">color: rgb(171, 171, 255);</string>
+   <string notr="true">background-color: #3a4b67;
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="layoutDirection">
@@ -92,7 +93,7 @@
        <item>
         <widget class="QPushButton" name="mainMenuButton">
          <property name="styleSheet">
-          <string notr="true">background-color: #d93a3a; color: white; border-radius: 10px; padding: 10px;</string>
+          <string notr="true">background-color: #3a9ad9; color: white; border-radius: 10px; padding: 10px;</string>
          </property>
          <property name="text">
           <string>Перейти на главное меню</string>
@@ -106,7 +107,7 @@
        <item>
         <widget class="QPushButton" name="addButton">
          <property name="styleSheet">
-          <string notr="true">background-color: #3ad97b; color: white; border-radius: 10px; padding: 10px;</string>
+          <string notr="true">background-color: #3a9ad9; color: white; border-radius: 10px; padding: 10px;</string>
          </property>
          <property name="text">
           <string>Добавить</string>
@@ -120,7 +121,7 @@
        <item>
         <widget class="QPushButton" name="deleteButton">
          <property name="styleSheet">
-          <string notr="true">background-color: #d93ad9; color: white; border-radius: 10px; padding: 10px;</string>
+          <string notr="true">background-color: #3a9ad9; color: white; border-radius: 10px; padding: 10px;</string>
          </property>
          <property name="text">
           <string>Удалить</string>
@@ -134,7 +135,7 @@
        <item>
         <widget class="QPushButton" name="exitButton">
          <property name="styleSheet">
-          <string notr="true">background-color: #d9a63a; color: white; border-radius: 10px; padding: 10px;</string>
+          <string notr="true">background-color: #d80000; color: white; border-radius: 10px; padding: 10px;</string>
          </property>
          <property name="text">
           <string>Выйти</string>

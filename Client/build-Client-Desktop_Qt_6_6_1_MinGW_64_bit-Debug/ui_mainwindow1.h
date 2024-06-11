@@ -50,6 +50,7 @@ public:
         if (mainwindow1->objectName().isEmpty())
             mainwindow1->setObjectName("mainwindow1");
         mainwindow1->resize(702, 621);
+        mainwindow1->setStyleSheet(QString::fromUtf8(""));
         gridLayout = new QGridLayout(mainwindow1);
         gridLayout->setObjectName("gridLayout");
         tabWidget = new QTabWidget(mainwindow1);

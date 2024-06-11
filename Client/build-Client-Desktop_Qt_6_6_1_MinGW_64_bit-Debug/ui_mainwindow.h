@@ -48,7 +48,8 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(840, 580);
-        MainWindow->setStyleSheet(QString::fromUtf8("color: rgb(171, 171, 255);"));
+        MainWindow->setStyleSheet(QString::fromUtf8("background-color: #3a4b67;\n"
+""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setLayoutDirection(Qt::LeftToRight);
@@ -57,7 +58,7 @@ public:
         statusBar->setGeometry(QRect(0, 10, 3, 22));
         centralwidget_4 = new QWidget(centralwidget);
         centralwidget_4->setObjectName("centralwidget_4");
-        centralwidget_4->setGeometry(QRect(50, 20, 671, 401));
+        centralwidget_4->setGeometry(QRect(50, 20, 676, 401));
         verticalLayout = new QVBoxLayout(centralwidget_4);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -94,7 +95,7 @@ public:
 
         mainMenuButton = new QPushButton(centralwidget_4);
         mainMenuButton->setObjectName("mainMenuButton");
-        mainMenuButton->setStyleSheet(QString::fromUtf8("background-color: #d93a3a; color: white; border-radius: 10px; padding: 10px;"));
+        mainMenuButton->setStyleSheet(QString::fromUtf8("background-color: #3a9ad9; color: white; border-radius: 10px; padding: 10px;"));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icons/menu.png"), QSize(), QIcon::Normal, QIcon::Off);
         mainMenuButton->setIcon(icon1);
@@ -103,7 +104,7 @@ public:
 
         addButton = new QPushButton(centralwidget_4);
         addButton->setObjectName("addButton");
-        addButton->setStyleSheet(QString::fromUtf8("background-color: #3ad97b; color: white; border-radius: 10px; padding: 10px;"));
+        addButton->setStyleSheet(QString::fromUtf8("background-color: #3a9ad9; color: white; border-radius: 10px; padding: 10px;"));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/icons/add.png"), QSize(), QIcon::Normal, QIcon::Off);
         addButton->setIcon(icon2);
@@ -112,7 +113,7 @@ public:
 
         deleteButton = new QPushButton(centralwidget_4);
         deleteButton->setObjectName("deleteButton");
-        deleteButton->setStyleSheet(QString::fromUtf8("background-color: #d93ad9; color: white; border-radius: 10px; padding: 10px;"));
+        deleteButton->setStyleSheet(QString::fromUtf8("background-color: #3a9ad9; color: white; border-radius: 10px; padding: 10px;"));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/icons/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
         deleteButton->setIcon(icon3);
@@ -121,7 +122,7 @@ public:
 
         exitButton = new QPushButton(centralwidget_4);
         exitButton->setObjectName("exitButton");
-        exitButton->setStyleSheet(QString::fromUtf8("background-color: #d9a63a; color: white; border-radius: 10px; padding: 10px;"));
+        exitButton->setStyleSheet(QString::fromUtf8("background-color: #d80000; color: white; border-radius: 10px; padding: 10px;"));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/icons/exit.png"), QSize(), QIcon::Normal, QIcon::Off);
         exitButton->setIcon(icon4);
@@ -147,7 +148,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         titleLabel->setText(QCoreApplication::translate("MainWindow", "\320\220\320\262\321\202\320\276\321\210\320\272\320\276\320\273\320\260 \320\220\320\262\321\202\320\276\320\273\321\216\320\272\321\201", nullptr));
         scheduleLabel->setText(QCoreApplication::translate("MainWindow", "\320\240\320\260\321\201\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\267\320\260\320\275\321\217\321\202\320\270\320\271", nullptr));
-        viewStatsButton->setText(QCoreApplication::translate("MainWindow", "\320\237\320\276\321\201\320\274\320\276\321\202\321\200\320\265\321\202\321\214 \321\201\321\202\320\260\321\202\321\214\320\270 \320\260\320\262\321\202\320\276\321\210\320\272\320\276\320\273\321\213", nullptr));
+        viewStatsButton->setText(QCoreApplication::translate("MainWindow", "\320\236\321\202\320\272\321\200\321\213\321\202\321\214 \321\203\321\207\320\265\320\261\320\275\321\213\320\271 \320\274\320\260\321\202\320\265\321\200\320\270\320\260\320\273", nullptr));
         mainMenuButton->setText(QCoreApplication::translate("MainWindow", "\320\237\320\265\321\200\320\265\320\271\321\202\320\270 \320\275\320\260 \320\263\320\273\320\260\320\262\320\275\320\276\320\265 \320\274\320\265\320\275\321\216", nullptr));
         addButton->setText(QCoreApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
         deleteButton->setText(QCoreApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
