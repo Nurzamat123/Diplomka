@@ -8,6 +8,8 @@ connect_db::connect_db(QWidget *parent) :
     ui(new Ui::connect_db)
 {
     ui->setupUi(this);
+
+    this->setWindowTitle("Подключение базы данных");
     connect(ui->connect_but,SIGNAL(clicked(bool)),this,SLOT(start_connect_clicked()));
     connect(ui->exit_but,SIGNAL(clicked(bool)),this,SLOT(exit_button_clicked()));
 }
